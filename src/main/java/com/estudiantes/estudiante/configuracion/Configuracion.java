@@ -1,6 +1,8 @@
 package com.estudiantes.estudiante.configuracion;
 
 import com.estudiantes.estudiante.caseUse.CreateEstudents;
+import com.estudiantes.estudiante.caseUse.DeleteEstudiantes;
+import com.estudiantes.estudiante.caseUse.UpdateEstudiante;
 import com.estudiantes.estudiante.controller.ControllerUser;
 import com.estudiantes.estudiante.repository.EstudianteRepository;
 import com.estudiantes.estudiante.service.UserService;
@@ -14,7 +16,14 @@ public class Configuracion {
     CreateEstudents saveEstudiantes(UserService userService){
         return new CreateEstudents(userService);
     }
-
+    @Bean
+    UpdateEstudiante updateEstudiantes(UserService userService){
+        return new UpdateEstudiante(userService);
+    }
+    @Bean
+    DeleteEstudiantes delteDeleteEstudiantes(UserService userService){
+        return new DeleteEstudiantes(userService);
+    }
     @Bean
     UserService saveStudentsService(EstudianteRepository estudianteRepository){
         return new UserService(estudianteRepository);

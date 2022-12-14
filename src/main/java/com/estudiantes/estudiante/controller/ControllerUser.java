@@ -1,7 +1,9 @@
 package com.estudiantes.estudiante.controller;
 
 import com.estudiantes.estudiante.caseUse.CreateEstudents;
+import com.estudiantes.estudiante.caseUse.DeleteEstudiantes;
 import com.estudiantes.estudiante.caseUse.SearchEstudiantes;
+import com.estudiantes.estudiante.caseUse.UpdateEstudiante;
 import com.estudiantes.estudiante.entidades.Estudiantes;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +16,14 @@ import java.util.List;
 public class ControllerUser {
     private CreateEstudents createEstudents;
     private SearchEstudiantes searchEstudiantes;
+    private UpdateEstudiante updateEstudiante;
+    private DeleteEstudiantes deleteEstudiantes;
 
-    public ControllerUser(CreateEstudents createEstudents, SearchEstudiantes searchEstudiantes){
+    public ControllerUser(CreateEstudents createEstudents, SearchEstudiantes searchEstudiantes, UpdateEstudiante updateEstudiante, DeleteEstudiantes deleteEstudiantes) {
         this.createEstudents = createEstudents;
         this.searchEstudiantes = searchEstudiantes;
+        this.updateEstudiante = updateEstudiante;
+        this.deleteEstudiantes = deleteEstudiantes;
     }
 
     @GetMapping
@@ -31,7 +37,18 @@ public class ControllerUser {
     }
 
     @GetMapping("/estudiantes")
-    List<Estudiantes> getAllEstudiantes(){
+    List<Estudiantes> getAllEstudiantes() {
         return searchEstudiantes.getAllEstudiantes();
+    }
+
+    @PutMapping("/update/{id}")
+    ResponseEntity<Estudiantes> updateEstudiantes(@RequestBody Estudiantes estudiantes, @PathVariable Long id) {
+        return new ResponseEntity<>(updateEstudiante.update(estudiantes, id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("delete/{id}")
+    ResponseEntity<Estudiantes> deleteEstudiante(@PathVariable Long id) {
+        deleteEstudiantes.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

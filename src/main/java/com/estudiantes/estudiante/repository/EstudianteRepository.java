@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface EstudianteRepository extends JpaRepository<Estudiantes, Long> {
     List<Estudiantes> findAll();
+
+
 }

@@ -21,4 +21,18 @@ public class UserService {
     public List<Estudiantes> getAllEstudiante() {
         return estudianteRepository.findAll();
     }
+
+    public Estudiantes update(Estudiantes newEstudiantes, Long id) {
+        return estudianteRepository.findById(id).map(
+                estudiantes -> {
+                    estudiantes.setNombre(newEstudiantes.getNombre());
+                    estudiantes.setApellido(newEstudiantes.getApellido());
+                    estudiantes.setEdad(newEstudiantes.getEdad());
+                    return estudianteRepository.save(estudiantes);
+                }).get();
+    }
+
+    public void delete(Long id) {
+        estudianteRepository.delete(new Estudiantes(id));
+    }
 }
