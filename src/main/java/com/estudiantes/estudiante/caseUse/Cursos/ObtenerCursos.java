@@ -1,18 +1,22 @@
 package com.estudiantes.estudiante.caseUse.Cursos;
-
 import com.estudiantes.estudiante.entidades.Grado;
 import com.estudiantes.estudiante.service.CursoService;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class CreateCurso {
+public class ObtenerCursos {
+
     private CursoService cursoService;
-    public CreateCurso(CursoService cursoService) {
+
+    public ObtenerCursos(CursoService cursoService){
         this.cursoService = cursoService;
     }
 
-    public Grado save(Grado curso){
-        return cursoService.save(curso);
+    public List<Grado> obtener (){
+        System.out.println(cursoService.buscarCursos().toString());
+        return  cursoService.buscarCursos();
     }
 
 }

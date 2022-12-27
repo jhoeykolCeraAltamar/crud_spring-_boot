@@ -1,12 +1,9 @@
 package com.estudiantes.estudiante.repository;
 
-import com.estudiantes.estudiante.entidades.Estudiantes;
+import com.estudiantes.estudiante.entidades.Denominacion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface EstudianteRepository extends JpaRepository<Estudiantes, Long> {
-
+public interface DenominacionRepository extends JpaRepository<Denominacion, Long> {
 }

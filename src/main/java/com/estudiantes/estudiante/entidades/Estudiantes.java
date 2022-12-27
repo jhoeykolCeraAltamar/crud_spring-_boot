@@ -19,8 +19,11 @@ public class Estudiantes {
     private int edad;
 
     @ManyToOne
-    @JsonBackReference
-    private Curso curso;
+    @JsonBackReference(value = "grado")
+    private Grado curso;
+    @ManyToOne
+    @JsonBackReference(value = "denominacion")
+    private Denominacion denominacion;
 
 
     public Estudiantes(String nombre, String apellido, int edad) {
@@ -70,12 +73,20 @@ public class Estudiantes {
         this.edad = edad;
     }
 
-    public Curso getCurso() {
+    public Grado getCurso() {
         return curso;
     }
 
-    public void setCurso(Curso curso) {
+    public void setCurso(Grado curso) {
         this.curso = curso;
+    }
+
+    public Denominacion getDenominacion() {
+        return denominacion;
+    }
+
+    public void setDenominacion(Denominacion denominacion) {
+        this.denominacion = denominacion;
     }
 
     @Override
@@ -86,6 +97,7 @@ public class Estudiantes {
                 ", apellido='" + apellido + '\'' +
                 ", edad=" + edad +
                 ", curso=" + curso +
+                ", denominacion=" + denominacion +
                 '}';
     }
 }

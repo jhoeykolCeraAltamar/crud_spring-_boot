@@ -3,8 +3,8 @@ package com.estudiantes.estudiante.entidades;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cursos", schema = "public")
-public class Curso {
+@Table(name = "grado", schema = "public")
+public class Grado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -12,17 +12,19 @@ public class Curso {
     @Column(name = "curso", length = 5, nullable = false)
     private String curso;
 
-    @Column(name = "denominacion", nullable = false, length = 2)
-    private String denominacion;
-
-    public Curso(String curso, String denominacion) {
+    public Grado(String curso) {
+        super();
         this.curso = curso;
-        this.denominacion = denominacion;
     }
 
-    public Curso(Long id){
+    public Grado() {
+
+    }
+
+    public Grado(Long id) {
         this.id = id;
     }
+
     public String getCurso() {
         return curso;
     }
@@ -39,20 +41,11 @@ public class Curso {
         this.curso = curso;
     }
 
-    public String getDenominacion() {
-        return denominacion;
-    }
-
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
-
     @Override
     public String toString() {
         return "Curso{" +
                 "id=" + id +
                 ", curso='" + curso + '\'' +
-                ", denominacion='" + denominacion + '\'' +
                 '}';
     }
 }
