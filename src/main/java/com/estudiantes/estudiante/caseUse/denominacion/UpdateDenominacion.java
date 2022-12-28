@@ -5,16 +5,14 @@ import com.estudiantes.estudiante.service.DenominacionService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreateDenominacion {
-
+public class UpdateDenominacion {
     private DenominacionService denominacionService;
 
-    public CreateDenominacion(DenominacionService denominacionService) {
+    public UpdateDenominacion (DenominacionService denominacionService){
         this.denominacionService = denominacionService;
     }
 
-    public Denominacion save(Denominacion denominacion) {
-        return denominacionService.save(denominacion);
+    public Denominacion update(Denominacion denominacion, long id){
+        return denominacionService.update(denominacion, id);
     }
-
 }

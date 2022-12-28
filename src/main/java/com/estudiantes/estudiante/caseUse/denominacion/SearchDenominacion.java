@@ -4,17 +4,19 @@ import com.estudiantes.estudiante.entidades.Denominacion;
 import com.estudiantes.estudiante.service.DenominacionService;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class CreateDenominacion {
+public class SearchDenominacion {
 
     private DenominacionService denominacionService;
 
-    public CreateDenominacion(DenominacionService denominacionService) {
+    public SearchDenominacion ( DenominacionService denominacionService) {
         this.denominacionService = denominacionService;
     }
 
-    public Denominacion save(Denominacion denominacion) {
-        return denominacionService.save(denominacion);
-    }
 
+    public List<Denominacion> search(){
+       return denominacionService.search();
+    }
 }

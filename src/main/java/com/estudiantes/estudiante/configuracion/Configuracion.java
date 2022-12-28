@@ -5,6 +5,8 @@ import com.estudiantes.estudiante.caseUse.Cursos.CreateCurso;
 import com.estudiantes.estudiante.caseUse.DeleteEstudiantes;
 import com.estudiantes.estudiante.caseUse.UpdateEstudiante;
 import com.estudiantes.estudiante.caseUse.denominacion.CreateDenominacion;
+import com.estudiantes.estudiante.caseUse.denominacion.DeleteDenominacion;
+import com.estudiantes.estudiante.caseUse.denominacion.UpdateDenominacion;
 import com.estudiantes.estudiante.repository.CursoRepository;
 import com.estudiantes.estudiante.repository.DenominacionRepository;
 import com.estudiantes.estudiante.repository.EstudianteRepository;
@@ -45,6 +47,15 @@ public class Configuracion {
     @Bean
     CreateDenominacion saveDenominacion(DenominacionService denominacionService){
         return new CreateDenominacion(denominacionService);
+    }
+    @Bean
+    UpdateDenominacion updateDenominaciones(DenominacionService denominacionService){
+        return new UpdateDenominacion(denominacionService);
+    }
+
+    @Bean
+    DeleteDenominacion deleteDenominaciones(DenominacionService denominacionService) {
+        return new DeleteDenominacion(denominacionService);
     }
     @Bean
     DenominacionService denominacionService(DenominacionRepository denominacionRepository){
