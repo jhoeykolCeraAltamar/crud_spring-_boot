@@ -11,14 +11,26 @@ public class CursoService {
 
     private final CursoRepository cursoRepository;
 
-    public CursoService (CursoRepository cursoRepository){
+    public CursoService(CursoRepository cursoRepository) {
         this.cursoRepository = cursoRepository;
     }
+
     public Grado save(Grado curso) {
-       return cursoRepository.save(curso);
+        return cursoRepository.save(curso);
     }
 
     public List<Grado> buscarCursos() {
-       return  cursoRepository.findAll();
+        return cursoRepository.findAll();
+    }
+
+    public Grado update(Grado grado, long id) {
+        return cursoRepository.findById(id).map(grados -> {
+            grados.setCurso(grado.getCurso());
+            return cursoRepository.save(grados);
+        }).get();
+    }
+
+    public void delete(long id) {
+        cursoRepository.deleteById(id);
     }
 }
