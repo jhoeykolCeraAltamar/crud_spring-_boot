@@ -5,6 +5,7 @@ import com.estudiantes.estudiante.caseUse.DeleteEstudiantes;
 import com.estudiantes.estudiante.caseUse.SearchEstudiantes;
 import com.estudiantes.estudiante.caseUse.UpdateEstudiante;
 import com.estudiantes.estudiante.entidades.Estudiantes;
+import com.google.gson.JsonArray;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,11 @@ public class ControllerUser {
     @GetMapping("/estudiantes")
     List<Estudiantes> getAllEstudiantes() {
         return searchEstudiantes.getAllEstudiantes();
+    }
+
+    @GetMapping("/estudiantesList")
+    JsonArray estudiantesList(){
+        return searchEstudiantes.estudiantesList();
     }
 
     @PutMapping("/update/{id}")

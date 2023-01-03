@@ -26,10 +26,12 @@ public class Estudiantes {
     private Denominacion denominacion;
 
 
-    public Estudiantes(String nombre, String apellido, int edad) {
+    public Estudiantes(String nombre, String apellido, int edad, Grado curso, Denominacion denominacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+        this.curso = curso;
+        this.denominacion = denominacion;
        
     }
 
