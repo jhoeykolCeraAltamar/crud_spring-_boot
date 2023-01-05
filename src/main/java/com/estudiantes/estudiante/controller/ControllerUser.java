@@ -4,6 +4,7 @@ import com.estudiantes.estudiante.caseUse.CreateEstudents;
 import com.estudiantes.estudiante.caseUse.DeleteEstudiantes;
 import com.estudiantes.estudiante.caseUse.SearchEstudiantes;
 import com.estudiantes.estudiante.caseUse.UpdateEstudiante;
+import com.estudiantes.estudiante.dto.EstudianteDTO;
 import com.estudiantes.estudiante.entidades.Estudiantes;
 import com.google.gson.JsonArray;
 import org.springframework.http.HttpStatus;
@@ -43,7 +44,7 @@ public class ControllerUser {
     }
 
     @GetMapping("/estudiantesList")
-    JsonArray estudiantesList(){
+    List<EstudianteDTO> estudiantesList(){
         return searchEstudiantes.estudiantesList();
     }
 

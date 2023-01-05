@@ -1,5 +1,6 @@
 package com.estudiantes.estudiante.caseUse;
 
+import com.estudiantes.estudiante.dto.EstudianteDTO;
 import com.estudiantes.estudiante.entidades.Estudiantes;
 import com.estudiantes.estudiante.service.UserService;
 import com.google.gson.JsonArray;
@@ -19,7 +20,7 @@ public class SearchEstudiantes {
         return userService.getAllEstudiante();
     }
 
-    public JsonArray estudiantesList(){
+    public List<EstudianteDTO> estudiantesList(){
         return userService.estudiantesList();
     }
 }

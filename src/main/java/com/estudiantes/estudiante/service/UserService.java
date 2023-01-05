@@ -1,6 +1,9 @@
 package com.estudiantes.estudiante.service;
 
+import com.estudiantes.estudiante.dto.EstudianteDTO;
+import com.estudiantes.estudiante.entidades.Denominacion;
 import com.estudiantes.estudiante.entidades.Estudiantes;
+import com.estudiantes.estudiante.entidades.Grado;
 import com.estudiantes.estudiante.repository.EstudianteRepository;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -38,19 +41,7 @@ public class UserService {
         estudianteRepository.delete(new Estudiantes(id));
     }
 
-    public JsonArray estudiantesList() {
-        JsonArray data = new JsonArray();
-        estudianteRepository.estudiantes().forEach(estudiantes -> {
-            JsonObject obj = new JsonObject();
-            obj.addProperty("id", estudiantes.getId());
-            obj.addProperty("nombre", estudiantes.getNombre());
-            obj.addProperty("apeliido", estudiantes.getApellido());
-            obj.addProperty("edad", estudiantes.getEdad());
-            obj.addProperty("curso", estudiantes.getCurso().getCurso());
-            obj.addProperty("denominacion", estudiantes.getDenominacion().getDenominacion());
-            data.add(obj);
-        });
-        System.out.println(data);
-        return data;
+    public List<EstudianteDTO> estudiantesList() {
+        return estudianteRepository.estudiantes();
     }
 }
