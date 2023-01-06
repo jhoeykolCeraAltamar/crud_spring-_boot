@@ -16,8 +16,8 @@ public class SearchEstudiantes {
         this.userService = userService;
     }
 
-    public List<Estudiantes> getAllEstudiantes(){
-        return userService.getAllEstudiante();
+    public List<EstudianteDTO> getEstudiantesById(long id){
+        return userService.getEstudianteById(id);
     }
 
     public List<EstudianteDTO> estudiantesList(){

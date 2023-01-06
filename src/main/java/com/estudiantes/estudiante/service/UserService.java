@@ -1,15 +1,9 @@
 package com.estudiantes.estudiante.service;
 
 import com.estudiantes.estudiante.dto.EstudianteDTO;
-import com.estudiantes.estudiante.entidades.Denominacion;
 import com.estudiantes.estudiante.entidades.Estudiantes;
-import com.estudiantes.estudiante.entidades.Grado;
 import com.estudiantes.estudiante.repository.EstudianteRepository;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,8 +18,8 @@ public class UserService {
         return estudianteRepository.save(estudiantes);
     }
 
-    public List<Estudiantes> getAllEstudiante() {
-        return estudianteRepository.findAll();
+    public List<EstudianteDTO> getEstudianteById(Long id) {
+        return estudianteRepository.EstudianteById(id);
     }
 
     public Estudiantes update(Estudiantes newEstudiantes, Long id) {

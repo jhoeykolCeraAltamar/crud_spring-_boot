@@ -38,12 +38,12 @@ public class ControllerUser {
         return new ResponseEntity<>(createEstudents.save(estudiantes), HttpStatus.CREATED);
     }
 
-    @GetMapping("/estudiantes")
-    List<Estudiantes> getAllEstudiantes() {
-        return searchEstudiantes.getAllEstudiantes();
+    @GetMapping("/estudiantes/{id}")
+    List<EstudianteDTO> getAllEstudiantes(@PathVariable long id) {
+        return searchEstudiantes.getEstudiantesById(id);
     }
 
-    @GetMapping("/estudiantesList")
+    @GetMapping("/estudiantes")
     List<EstudianteDTO> estudiantesList(){
         return searchEstudiantes.estudiantesList();
     }
