@@ -31,6 +31,10 @@ public class CursoService {
     }
 
     public void delete(long id) {
-        cursoRepository.deleteById(id);
+        cursoRepository.findById(id).map(grados -> {
+            grados.setCurso(grados.getCurso());
+            grados.setEstado("I");
+            return cursoRepository.save(grados);
+        }).get();
     }
 }

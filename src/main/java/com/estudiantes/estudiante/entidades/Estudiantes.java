@@ -17,6 +17,8 @@ public class Estudiantes {
     private String apellido;
     @Column(name = "edad", length = 10, nullable = false)
     private int edad;
+    @Column(name = "estado", columnDefinition = "varchar(1) default 'A'", nullable = false)
+    private String estado;
 
     @ManyToOne
     @JsonBackReference(value = "grado")
@@ -32,7 +34,6 @@ public class Estudiantes {
         this.edad = edad;
         this.curso = curso;
         this.denominacion = denominacion;
-       
     }
 
     public Estudiantes() {
@@ -73,6 +74,14 @@ public class Estudiantes {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Grado getCurso() {

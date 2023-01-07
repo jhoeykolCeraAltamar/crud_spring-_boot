@@ -28,6 +28,10 @@ public class DenominacionService {
     }
 
     public void delete(long id) {
-        denominacionRepository.deleteById(id);
+        denominacionRepository.findById(id).map(denominaciones -> {
+            denominaciones.setDenominacion(denominaciones.getDenominacion());
+            denominaciones.setEstado("I");
+            return denominacionRepository.save(denominaciones);
+        }).get();
     }
 }

@@ -11,6 +11,8 @@ public class Grado {
 
     @Column(name = "curso", length = 5, nullable = false)
     private String curso;
+    @Column(name = "estado", columnDefinition = "varchar(1) default 'A'")
+    private String estado;
 
     public Grado(String curso) {
         super();
@@ -39,6 +41,14 @@ public class Grado {
 
     public void setCurso(String curso) {
         this.curso = curso;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

@@ -10,6 +10,8 @@ public class Denominacion {
     private long id;
     @Column(name = "denominacion", length = 2, nullable = false)
     private String nombre;
+    @Column(name = "estado", columnDefinition = "varchar(1) default 'A'")
+    private String estado;
 
     public Denominacion(String nombre) {
         super();
@@ -37,6 +39,14 @@ public class Denominacion {
 
     public String getDenominacion() {
         return nombre;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

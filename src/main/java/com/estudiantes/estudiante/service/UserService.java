@@ -27,12 +27,22 @@ public class UserService {
             estudiantes.setNombre(newEstudiantes.getNombre());
             estudiantes.setApellido(newEstudiantes.getApellido());
             estudiantes.setEdad(newEstudiantes.getEdad());
+            estudiantes.setCurso(newEstudiantes.getCurso());
+            estudiantes.setDenominacion(newEstudiantes.getDenominacion());
             return estudianteRepository.save(estudiantes);
         }).get();
     }
 
     public void delete(Long id) {
-        estudianteRepository.delete(new Estudiantes(id));
+        estudianteRepository.findById(id).map(estudiantes -> {
+            estudiantes.setEstado("I");
+            estudiantes.setNombre(estudiantes.getNombre());
+            estudiantes.setApellido(estudiantes.getApellido());
+            estudiantes.setEdad(estudiantes.getEdad());
+            estudiantes.setCurso(estudiantes.getCurso());
+            estudiantes.setDenominacion(estudiantes.getDenominacion());
+            return estudianteRepository.save(estudiantes);
+        }).get();
     }
 
     public List<EstudianteDTO> estudiantesList() {
